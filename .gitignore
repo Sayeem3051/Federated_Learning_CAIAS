@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# Environment variables
+.env
+*.env
+
+# Flask / instance
+instance/
+*.db
+*.sqlite3
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Large data files (too big for GitHub)
+heart_disease_dataset/BRFSS_2022.csv
+# *.pkl
+# *.h5
+
+# FL Generated folders
+app/fl/saved_models/
+app/uploads/
+heart_disease_dataset/hospital_client*.csv
