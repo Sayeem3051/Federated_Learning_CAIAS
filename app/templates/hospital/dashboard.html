@@ -2,7 +2,6 @@
 
 {% block content %}
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
     /* --- Animations --- */
     @keyframes fadeScale {
@@ -71,12 +70,12 @@
         display: flex;
         align-items: center;
         gap: 1.5rem;
-        background: rgba(255, 255, 255, 0.05);
+        background: var(--bg-elevated);
         backdrop-filter: blur(12px) saturate(180%);
         padding: 0.75rem 1.25rem;
-        border-radius: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        border-radius: var(--radius-card);
+        border: 1px solid var(--border-medium);
+        box-shadow: var(--shadow-elevated);
     }
     .user-info {
         display: flex;
@@ -116,7 +115,6 @@
 
     /* Themed background for this specific container body without breaking base.html navbar */
     .hosp-wrapper {
-        font-family: 'Inter', sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -129,7 +127,7 @@
 
     .hosp-container {
         display: flex;
-        background: hsl(240, 16%, 12%);
+        background: var(--bg-base);
         width: 100%;
         min-height: 100vh;
         overflow: hidden;
@@ -140,12 +138,12 @@
     /* Left panel */
     .hosp-left {
         flex: 0 0 40%;
-        background: linear-gradient(145deg, #152454 0%, #111a21 100%);
+        background: linear-gradient(145deg, #131a2e 0%, #0e1320 100%);
         position: relative;
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
         padding: 3.5rem;
     }
 
@@ -153,8 +151,8 @@
         content: '';
         position: absolute;
         top: 0; right: 0; bottom: 0; left: 0;
-        background: radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.4) 0%, transparent 60%),
-                    radial-gradient(circle at 30% 80%, rgba(0, 194, 209, 0.3) 0%, transparent 60%);
+        background: radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.2) 0%, transparent 55%),
+                    radial-gradient(circle at 30% 80%, rgba(0, 194, 209, 0.12) 0%, transparent 55%);
         pointer-events: none;
     }
 
@@ -184,16 +182,16 @@
         padding: 4rem;
         position: relative;
         overflow: hidden;
-        background-color: transparent;
+        background: rgba(13, 16, 23, 0.6);
     }
 
     /* Ambient Orbs */
     .hosp-right::before {
         content: '';
         position: absolute;
-        top: 20%; right: 10%;
-        width: 250px; height: 250px;
-        background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
+        top: 25%; right: 15%;
+        width: 200px; height: 200px;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
         pointer-events: none;
         z-index: 0;
         animation: orbFloat1 18s ease-in-out infinite;
@@ -202,9 +200,9 @@
     .hosp-right::after {
         content: '';
         position: absolute;
-        bottom: 10%; left: 10%;
-        width: 200px; height: 200px;
-        background: radial-gradient(circle, rgba(0, 194, 209, 0.2) 0%, transparent 70%);
+        bottom: 15%; left: 15%;
+        width: 160px; height: 160px;
+        background: radial-gradient(circle, rgba(0, 194, 209, 0.1) 0%, transparent 70%);
         pointer-events: none;
         z-index: 0;
         animation: orbFloat2 20s ease-in-out infinite reverse;
@@ -274,13 +272,14 @@
         border: 1px solid rgba(0, 0, 0, 0.4) !important;
         border-top: 1px solid rgba(147, 197, 253, 0.6) !important;
         padding: 0.875rem;
-        border-radius: 12px !important;
+        border-radius: var(--radius-button) !important;
         font-size: 1rem;
         font-weight: 500;
+        font-family: inherit;
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         margin-top: 1.5rem;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), inset 0 2px 4px rgba(255, 255, 255, 0.15) !important;
+        box-shadow: var(--shadow-card) !important;
         position: relative;
         overflow: hidden;
     }
@@ -304,12 +303,12 @@
     /* Analytics Panel */
     .glass-panel {
         margin-top: 1.5rem;
-        background-color: rgba(255, 255, 255, 0.03);
+        background-color: var(--bg-card);
         backdrop-filter: blur(12px) saturate(180%);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
+        border: 1px solid var(--border-medium);
+        border-radius: var(--radius-card);
         padding: 1.25rem;
-        color: #e2e8f0;
+        color: var(--text-primary);
     }
 
     .glass-panel hr {

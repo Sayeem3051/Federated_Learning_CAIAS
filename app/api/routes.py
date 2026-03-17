@@ -263,8 +263,21 @@ def create_user():
     user.set_password(data['password'])
     user.role = role
     
-    if data.get('hospital_id'):
-        user.hospital_id = data['hospital_id']
+    if role.name == 'Hospital Node':
+        if data.get('hospital_id'):
+            user.hospital_id = data['hospital_id']
+        else:
+            import uuid
+            # Auto-create a sequential hospital if not provided
+            hospital_count = Hospital.query.count()
+            new_hospital_name = f"Hospital Node {hospital_count + 1}"
+            hospital = Hospital(
+                name=new_hospital_name,
+                location="Unknown",
+                api_key=uuid.uuid4().hex
+            )
+            db.session.add(hospital)
+            user.hospital = hospital
     
     db.session.add(user)
     db.session.commit()

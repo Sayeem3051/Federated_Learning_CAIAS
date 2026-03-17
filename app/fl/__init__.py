@@ -1,5 +1,2 @@
-from flask import Blueprint
-
-bp = Blueprint('auth', __name__)
-
-from app.auth import routes
+# Federated Learning engine package
+# Contains: model.py, client.py, data.py, aggregator.py

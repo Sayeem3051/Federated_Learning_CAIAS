@@ -56,6 +56,24 @@ def register():
             
         user = User(username=form.username.data, email=form.email.data, role=role)
         user.set_password(form.password.data)
+        
+        if role.name == 'Hospital Node':
+            import uuid
+            from app.models import Hospital
+            # Count existing hospitals to generate a sequential name
+            hospital_count = Hospital.query.count()
+            new_hospital_name = f"Hospital Node {hospital_count + 1}"
+            
+            # Create the hospital record
+            hospital = Hospital(
+                name=new_hospital_name,
+                location="Unknown",
+                api_key=uuid.uuid4().hex
+            )
+            db.session.add(hospital)
+            # Link user to this hospital
+            user.hospital = hospital
+        
         db.session.add(user)
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
