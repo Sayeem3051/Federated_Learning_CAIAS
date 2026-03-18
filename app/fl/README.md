@@ -30,12 +30,12 @@ Input(23) → Linear(64) → ReLU → Dropout(0.3) → Linear(32) → ReLU → D
 ```
 - 3-layer DNN with dropout for regularization
 - Uses `BCEWithLogitsLoss` with `pos_weight` to handle class imbalance
-- Training: Adam optimizer, lr=0.001, batch_size=256, 5 epochs
+- Training: Adam optimizer, lr=0.003, batch_size=256, 20 epochs
 
 ### Client (`client.py` → `FLClient`)
 1. Loads hospital's CSV data via `FLDataHandler`
 2. Receives global model weights from server
-3. Trains locally for 5 epochs
+3. Trains locally for 20 epochs
 4. Adds differential privacy noise (Gaussian, σ=0.01) to weights
 5. Returns: `(noisy_weights, n_samples, metrics)`
 
